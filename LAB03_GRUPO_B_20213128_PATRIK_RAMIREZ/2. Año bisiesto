@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+int bisiesto(int f){
+	if(f%4!=0 || (f%100==0 && f%400!=0)){
+	
+		cout<<"No es bisiesto";
+	}else{
+		cout<<"Es bisiesto";
+	}	
+}
+
+int main(){
+	int fecha;
+	cout<<"Introduzca año: ";cin>>fecha;
+	bisiesto(fecha);
+}
