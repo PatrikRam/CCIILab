@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int primo(int x){
+	bool con;
+	if(x!=1 && x!=0){
+	
+	for(int i=2;i<=x;i++){
+			if(x%i==0){
+				if(x==i){
+				con=true;
+			}else{
+				con=false;
+				return con;
+			}
+		}
+		
+		}
+	}else con=false;
+	 	return con;
+}
+
+
+int main(){
+	int x;
+	cout<<"Hasta que valor?: ";cin>>x;
+	for(int i=1; i<=x; i++){
+		if (primo(i)) cout<<i<<endl;
+	}
+}
