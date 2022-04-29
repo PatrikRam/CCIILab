@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+bool primo (int x){
+	bool condicion;
+	if (x!=1 && x!=0){
+		for(int i=2; i<=x; i++){
+			if(x%i==0){
+				if(x==i){
+					condicion=true;
+				}else{
+					condicion=false;
+					return condicion;
+				}
+			}
+		}
+	}else condicion=false;
+	return condicion;
+	
+}
+
+int main(){
+	
+	int x,y;
+	
+	cout<<"Valor x: "<<endl;
+	cin>>x;
+	cout<<"Valor y: "<<endl;
+ 	cin>>y;
+ 	
+ 	for(int i=y; i<=x; i++){
+ 		if(primo(i)) 
+		 cout<<i<<endl;
+ 	}
+ 		
+}
