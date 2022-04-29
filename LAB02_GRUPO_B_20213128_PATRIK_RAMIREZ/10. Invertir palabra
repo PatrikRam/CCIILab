@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	
+	
+   string palabra, invertir;
+   int x;
+   
+   cout<<"Palabra: ";cin>>palabra;
+   x=palabra.length();
+   
+   for(int i=x; i>=0; i--){
+   	invertir=invertir+palabra.substr(i,1);
+   }
+   cout<<"Invertida: "<<invertir;
+	
+}
