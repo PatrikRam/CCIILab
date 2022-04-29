@@ -21,12 +21,7 @@ int main(){
 		cout<<"\nEl numero en binario es: ";
 		for (int i=7; i>=0; i--){
 			cout<<binario[i];
-		}
-		
-	}
-	
-	
-	
-	
+		}	
+	}	
 }
 

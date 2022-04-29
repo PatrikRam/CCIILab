@@ -10,5 +10,4 @@ int main(){
 	cin>>n2;
 	resp=n1*n2;
 	cout<<"El producto es: "<<resp;
-	
-	}
+}

@@ -12,6 +12,5 @@ int main(){
 		}
 	}
 	cout<<"La suma de negativos es: "<<suma;
-	
-	
+		
 }

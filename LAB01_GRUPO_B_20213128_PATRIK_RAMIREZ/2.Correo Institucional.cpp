@@ -11,5 +11,5 @@ int main(){
 	cout<<"Ingrese su apellido materno: ";
 	cin>>am;
 	
- 	cout<<"Su correo institucional UNSA es: "<<nombre[0]<<ap<<am[0];
-	}
+ 	cout<<"Su correo institucional UNSA es: "<<nombre[0]<<ap<<am[0]<<"@gmail.com";
+}

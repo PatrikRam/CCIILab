@@ -75,53 +75,52 @@ int main(){
  		mhoras=horas+c;
  		if(mhoras==13){
  		horas=1;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==14){
  		horas=2;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==15){
  		horas=3;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==16){
  		horas=4;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==17){
  		horas=5;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==18){
  		horas=6;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==19){
  		horas=7;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==20){
  		horas=8;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==21){
  		horas=9;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==22){
  		horas=10;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==23){
  		horas=11;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  		else if(mhoras==24){
  		horas=0;
- 		cout<<"La hora es: "<<horas<<":"<<mtotal2;
+ 		cout<<"La hora es: "<<mhoras<<":"<<mtotal2;
  		}
  	}
  		
- 		
-	}
+}

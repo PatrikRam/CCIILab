@@ -8,11 +8,9 @@ int main(){
 	
 	do{
 		cout<<"Escriba la contraseña: ";	
-		cin>>p;
-	
-		
+		cin>>p;	
 		}
-	while (palabra!=p);{
+	while (palabra==p);{
 	cout<<"CORRECTO";
 }
 }

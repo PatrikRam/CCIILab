@@ -11,13 +11,9 @@ int main(){
 		cout<<"Numero?: ";
 		cin>>n;
 		suma=suma+n;
-		
-		
+			
 	}
 	media=suma/cantidad;
-	cout<<"La suma es: "<<media;
-	
-	
-	
+	cout<<"La media es: "<<media;
 	
 }
