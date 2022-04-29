@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	int n1,n2,n3,n, media;
+	cout<<"Cantidad de alumnos: ";cin>>n;
+	for(int i=0; i<n; i++){
+		cout<<"\nNota 1: "; cin>>n1;
+		cout<<"\nNota 2: "; cin>>n2;
+		cout<<"\nNota 3: "; cin>>n3;
+		media= (n1+n2+n3)/3;
+		cout<<"\nEl promedio para el estudiante "<<i+1<<" es: "<<media;
+	}
+}
