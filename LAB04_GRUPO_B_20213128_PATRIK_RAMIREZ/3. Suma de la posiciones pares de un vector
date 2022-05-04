@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	int vec[10], tam, suma=0;
+	cout<<"Cantidad de elementos de la matriz: ";cin>>tam;
+	for(int i=0;i<tam;i++){
+		cout<<i+1<<". Numero? ";
+		cin>>vec[i];
+	}
+	for(int i=2; i<tam;i=i+2){
+		suma=suma+vec[i];
+		
+	}
+	for(int i=0;i<tam;i++){
+		cout<<" "<<vec[i];
+}
+	cout<<"\nLa suma de las posiciones pares (desde la pos 2)es: "<<suma;
+}
