@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	int m[3][3]={{1,2,3}, {4,5,6}, {7,8,9}};
+	int f,c, sumafila;
+	for(f=0;f<3;f++){
+		for(c=0;c<3;c++){
+			cout<<m[f][c]<<" ";
+		}
+		cout<<endl;
+	}
+	for(f=0;f<3;f++){
+		sumafila=0;
+		for(c=0;c<3;c++){
+			sumafila=sumafila+m[f][c];
+		}
+		cout<<"\nLa suma de la fila es "<<f<<" es: "<<sumafila;
+	}
+}
