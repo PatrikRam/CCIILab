@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	string nombre[20],apellido[20];
+	int edad[20], dni[20];
+	
+	
+	for(int i=0; i<3; i++){
+		cout<<"\n Persona "<<i+1<<endl;
+			cout<<"Nombre: ";cin>>nombre[i];
+			cout<<"\nApellido: ";cin>>apellido[i];
+			cout<<"\nEdad: ";cin>>edad[i];
+			cout<<"\nDNI: ";cin>>dni[i];
+	}
+	cout<<"RESULTADOS"<<endl;
+	for(int i=0; i<3; i++){
+		
+		cout<<"\nPersona "<<i+1<<endl;
+		cout<<"Nombre: "<<nombre[i]<<endl;
+		cout<<"\nApellido: "<<apellido[i]<<endl;
+		cout<<"\nEdas: "<<edad[i]<<endl;
+		cout<<"\nDNI: "<<dni[i]<<endl;
+	}
+}
