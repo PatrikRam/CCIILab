@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+void concatenacion (string *a, string *b){
+	cout<<"Primera palabra: "<<*b<<" \nSegunda palabra: "<<*a;
+	
+}
+int main(){
+	string a, *dir_a;
+	string b, *dir_b;
+	
+	dir_a=&a;
+	dir_b=&b;
+	
+	cout<<"Primera palabra: ";
+	cin>>a;
+	cout<<"Segunda palabra: ";
+	cin>>b;
+	concatenacion(dir_a,dir_b);
+	
+}
