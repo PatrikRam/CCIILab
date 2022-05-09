@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+void llenar(int *v, int n){
+	cout<<"Llenando el vector\n";
+	for(int i=0; i<n; i++){
+		srand(time(0));
+		cin>>*(v+i);
+	}
+}
+
+void print(int *v, int n){
+	cout<<"\nImprimiendo vector\n";
+	for(int i=0; i<n; i++){
+		cout<<*(v+i)<<" ";
+	}
+}
+void crear(int *&v, int n){
+	v=new int[n];
+}
+
+void borrar(int *v, int n){
+	delete v;
+}
+
+int *mult(int *v1, int *v2, int n){
+	int *vm=new int[n];
+	for(int i=0; i<n;i++)
+		*(vm+i)=*(v1+i) * *(v2+i);
+		return vm;		
+}
+
+int main(){
+	int *v1, *v2, *v3, n;
+	cout<<"Cantidad de elementos: ";
+	cin>>n;
+	crear(v1,n); crear(v2,n); crear(v3, n);
+	llenar(v1, n); llenar(v2, n);
+	v3=mult(v1,v2,n);
+	print(v1, n); print(v2, n); print(v3, n);
+	borrar(v1, n); borrar(v2, n); borrar(v3, n);	
+}
