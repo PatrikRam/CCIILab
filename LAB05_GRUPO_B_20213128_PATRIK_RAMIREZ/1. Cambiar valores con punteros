@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int *p1,*p2;
+    int a=5,b=6, aux;
+    
+    p1=&a;
+    p2=&b;
+    
+    aux=*p1;
+    *p1=*p2;
+    *p2=aux;
+    cout<<"Nuevo valor de a: "<<*p1;
+    cout<<"\nNuevo valor de b: "<<*p2;
+}
