@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+void suma (double *a, double *b){
+	cout<<"La suma es: "<<*a+*b<<endl;	
+}
+
+void restar (double *a, double *b){
+	cout<<"La resta es: "<<*a-*b<<endl;	
+}
+
+void multiplicar (double *a, double *b){
+	cout<<"La multiplicacion es: "<<*a**b<<endl;	
+}
+
+void dividir (double *a, double *b){
+	cout<<"La division es: "<<*a/(*b)<<endl;	
+}
+
+int main(){
+	double a, *dir_a;
+	double b, *dir_b;
+	
+	dir_a=&a;
+	dir_b=&b;
+	
+	cout<<"Primera valor: ";
+	cin>>a;
+	cout<<"Segundo valor: ";
+	cin>>b;
+	suma(dir_a,dir_b);
+	restar(dir_a,dir_b);
+	multiplicar(dir_a,dir_b);
+	dividir(dir_a,dir_b);
+}
