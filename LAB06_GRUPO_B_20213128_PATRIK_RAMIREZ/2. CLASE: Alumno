@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+
+class Alumno
+{
+private:
+	string nombre;
+	int cui;
+    double n1, n2, n3;
+public:
+	
+	void setnombre(string);
+	void setcui(int);
+    void setnotas(double, double, double);
+    
+    string getnombre();
+    int getcui();
+    double getnotas();
+    
+    double promedio();
+
+};
+
+void Alumno::setnombre(string n)
+{
+    nombre=n;
+}
+void Alumno::setcui(int c)
+{
+    cui=c;
+}
+void Alumno::setnotas(double _n1, double _n2, double _n3)
+{
+    n1=_n1;
+    n2=_n2;
+    n3=_n3;
+}
+
+string Alumno::getnombre()
+{
+    return nombre;
+}
+int Alumno::getcui()
+{
+    return cui;
+}
+double Alumno::promedio(){
+	double prom;
+	prom=((n1+n2+n3)/3);
+	cout<<"El promedio es: "<<prom<<endl;
+	if (prom>=10.5){
+		cout<<"APROBASTE"<<endl;
+	}else{
+		cout<<"DESAPROBASTE"<<endl;
+	}
+}
+
+int main()
+{
+    Alumno a1;
+    a1.setnombre("Patrik");
+    a1.setcui(20213128);
+    a1.setnotas(18,19,20);
+    
+    cout<<"Nombre: "<<a1.getnombre()<<endl;
+	cout<<"CUI: "<<a1.getcui()<<endl;
+	a1.promedio();
+	 
+}
