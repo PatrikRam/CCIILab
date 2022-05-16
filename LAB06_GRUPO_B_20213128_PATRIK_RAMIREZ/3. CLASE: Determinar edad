@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+int edad(int dnacimiento, int mnacimiento, int anacimiento, int dactual, int mactual, int aactual){
+	int edad;
+	if (mnacimiento<mactual){
+		edad=aactual-anacimiento;
+	}else if(mnacimiento==mactual){
+		if(dnacimiento<=dactual){
+			edad=(dactual-anacimiento)-1;
+		}
+	}else if(mnacimiento>mactual){
+		edad=(aactual-anacimiento)-1;
+	}
+	cout<<"Su edad es: "<<edad;
+}
+
+int main(){
+	int dnacimiento, mnacimiento, anacimiento;
+	int dactual, mactual, aactual;
+	
+	cout<<"Dia de nacimiento?: ";cin>>dnacimiento;
+	cout<<"Mes de nacimiento?: ";cin>>mnacimiento;
+	cout<<"Año de nacimiento?: ";cin>>anacimiento;
+	
+	cout<<"Dia actual?: ";cin>>dactual;
+	cout<<"Dia actual?: ";cin>>mactual;
+	cout<<"Dia actual?: ";cin>>aactual;
+	
+	edad(dnacimiento, mnacimiento, anacimiento, dactual, mactual, aactual);
+}
