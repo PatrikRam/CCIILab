@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+class BuscarM
+{
+private:
+	int buscar;
+public:
+	void setbuscar(int);
+    int getbuscar();
+    double Buscarr();
+
+};
+
+void BuscarM::setbuscar(int _buscar)
+{
+    buscar=_buscar;  
+}
+double BuscarM::Buscarr(){
+	int A[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+	int fi,co;
+	int f,c;
+	bool verificar=false;
+	
+	for(int f=0; f<3; f++){
+		for(int c=0; c<3; c++){
+			cout<<A[f][c]<<" ";
+	}
+	cout<<endl;
+	
+}
+	for(int f=0; f<3; f++){
+		for(int c=0; c<3; c++){
+			if(buscar==A[f][c]){
+				co=c;
+				fi=f;
+				verificar=true;
+			}
+		}
+	}
+	if(verificar==true){
+		cout<<"El valor "<<buscar<<" esta en la columna "<<co+1<<" y la fila "<<fi+1;
+	}else{
+		cout<<"No esta en el arreglo";
+	}
+}
+
+
+int main()
+{
+    BuscarM a1;
+    a1.setbuscar(5);
+    a1.Buscarr();
+	 
+}
