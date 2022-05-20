@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+	
+class Ave{
+	protected:
+		string nombre, color;
+		int edad;
+		
+	public:
+		Ave(string, string, int);
+		void mostrar();
+};
+Ave::Ave(string _nombre, string _color, int _edad){
+		nombre=_nombre;
+		color= _color;
+		edad= _edad;
+		cout<<"Construyendo Clase Padre Ave"<<endl;
+	}
+void Ave::mostrar(){
+	cout<<"Su nombre es: "<<nombre<<endl;
+	cout<<"De color: "<<color<<endl;
+	cout<<"Su edad es: "<<edad<<endl;
+}
+
+class Ganzo:public Ave{
+	protected:
+		string pareja;
+	public:
+		Ganzo(string, string, int, string);
+		void mostrar();
+		
+};
+Ganzo::Ganzo(string nombre, string color, int edad, string _pareja):Ave(nombre,color,edad){
+	pareja=_pareja;
+	cout<<"Clase Ganzo"<<endl;
+}
+void Ganzo::mostrar(){
+	cout<<"Su nombre es: "<<nombre<<endl;
+	cout<<"De color: "<<color<<endl;
+	cout<<"Su edad es: "<<edad<<endl;
+	cout<<"Pareja: "<<pareja<<endl;
+}
+
+
+class Pato:public Ave{
+	protected:
+		string pareja;
+	public:
+		Pato(string, string, int, string);
+		void mostrar();
+		
+};
+Pato::Pato(string nombre, string color, int edad, string _pareja):Ave(nombre,color,edad){
+	pareja=_pareja;
+	cout<<"Clase Pato"<<endl;
+}
+void Pato::mostrar(){
+	cout<<"Su nombre es: "<<nombre<<endl;
+	cout<<"De color: "<<color<<endl;
+	cout<<"Su edad es: "<<edad<<endl;
+	cout<<"Puede ser: "<<pareja<<endl;
+}
+
+
+class Gallina:public Ave{
+	protected:
+		string pareja;
+	public:
+		Gallina(string, string, int, string);
+		void mostrar();
+		
+};
+Gallina::Gallina(string nombre, string color, int edad, string _pareja):Ave(nombre,color,edad){
+	pareja=_pareja;
+	cout<<"Clase Gallina"<<endl;
+}
+void Gallina::mostrar(){
+	cout<<"Su nombre es: "<<nombre<<endl;
+	cout<<"De color: "<<color<<endl;
+	cout<<"Su edad es: "<<edad<<endl;
+	cout<<"Comida: "<<pareja<<endl;
+}
+
+int main(){	
+	Ave a1("Patrik", "Amarillo", 5);
+	a1.mostrar();
+	cout<<"-----------------------------"<<endl;
+	Ganzo g1("Rene", "Negro", 6, "Ganza");
+	g1.mostrar();
+	cout<<"-----------------------------"<<endl;
+	Pato p1("Maria", "Blanca", 4, "Mascota");
+	p1.mostrar();
+	cout<<"-----------------------------"<<endl;
+	Gallina ga1("Fernanda", "cafe", 5, "Caldo de gallina");
+	ga1.mostrar();
+	
+}
