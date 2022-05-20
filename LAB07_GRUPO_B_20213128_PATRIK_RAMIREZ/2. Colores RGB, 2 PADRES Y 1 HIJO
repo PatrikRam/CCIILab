@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+class Color{
+	protected:
+		int color1, color2, color3;
+		
+	public:
+		Color(int, int, int);
+		~Color();
+		void mostrar();
+		
+};	
+Color::Color(int _color1, int _color2, int _color3){
+		color1=_color1;
+		color2=_color2;
+		color3=_color3;
+		cout<<"Construyendo Colores"<<endl;
+}
+Color::~Color(){
+	
+}
+void Color::mostrar(){
+	cout<<"Color RGB: "<<color1<<" "<<color2<<" "<<color3<<endl;
+}
+
+class Material{
+	protected:
+		string mat;
+		
+	public:
+		Material(string);
+		~Material();
+
+		void mostrar();
+};
+Material::Material(string _mat){
+		mat=_mat;
+		
+		cout<<"Construyendo Material"<<endl;
+	}
+Material::~Material(){
+	
+}
+	
+
+	
+void Material::mostrar(){
+	cout<<"El material es: "<<mat<<endl;
+}
+
+class Objeto:public Color, Material{
+	
+	public:
+		Objeto(int, int, int, string);
+		~Objeto();
+		void mostrar();
+		
+};
+Objeto::Objeto(int color1,int color2,int color3, string mat):Color(color1,color2,color3),Material(mat){
+	
+	cout<<"Herencia"<<endl;
+}
+
+Objeto::~Objeto(){
+	
+}
+void Objeto::mostrar(){
+	cout<<"Color RGB: "<<color1<<" "<<color2<<" "<<color3<<endl;
+	cout<<"El material es: "<<mat<<endl;
+}
+
+
+int main(){	
+	
+	Objeto a1(18,18,18, "vidrio");
+	a1.mostrar();
+	
+}
