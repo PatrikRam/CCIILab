@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+class operacionBase{
+	protected:
+		int operador;
+		
+	public:
+		operacionBase(int);
+		void setOperador(int);
+		int getOperador();
+		
+};	
+operacionBase::operacionBase(int _operador){
+    operador=_operador;
+	
+}
+void operacionBase::setOperador(int _operador)
+{
+    operador=_operador;
+}
+
+int  operacionBase::getOperador()
+{
+    return operador;
+}
+
+class operacionFactorial:public operacionBase{
+			
+	public:
+		operacionFactorial(int);
+		int devolverFactorial();
+};
+
+operacionFactorial::operacionFactorial(int operador):operacionBase(operador){
+			
+		cout<<"Clase herencia"<<endl;
+	}
+	
+int operacionFactorial::devolverFactorial(){
+	int f=1;
+	
+	for(int i=1; i<=operador;i++){
+		f=f*i;
+	}
+		cout<<"El factorial es: "<<f<<endl;
+}
+
+
+int main(){	
+	
+	operacionFactorial a1(5);
+	a1.devolverFactorial();
+	
+}
