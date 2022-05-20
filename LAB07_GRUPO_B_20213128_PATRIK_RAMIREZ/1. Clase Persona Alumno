@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+	
+class Persona{
+	protected:
+		string nombre;
+		int edad;
+	public:
+		Persona(string, int);
+		void mostrar();
+};
+Persona::Persona(string n, int e){
+		nombre=n;
+		edad=e;
+		cout<<"Construyendo Persona"<<endl;
+	}
+void Persona::mostrar(){
+	cout<<"Su nombre es "<<nombre<<" y tiene "<<edad<<" años"<<endl;
+}
+
+class Alumno:public Persona{
+	protected:
+		string especialidad;
+	public:
+		Alumno(string, int, string);
+		void mostrar();
+};
+Alumno::Alumno(string n, int e, string esp):Persona(n,e){
+	especialidad=esp;
+	cout<<"Construyendo Alumno"<<endl;
+}
+
+void Alumno::mostrar(){
+	cout<<"Su nombre es "<<nombre<<" tiene "<<edad<<" años"<<" y estudia "<<especialidad<<endl;
+}
+int main(){	
+	Persona p1("Patrik", 23);
+	p1.mostrar();
+	
+	Alumno a1("Rene", 18, "Ciencias de la computacion");
+	a1.mostrar();
+}
