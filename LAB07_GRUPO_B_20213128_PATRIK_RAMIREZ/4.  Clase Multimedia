@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+class ClaseMultimedia{
+	protected:
+		string programa;
+	public:
+		ClaseMultimedia (string programa);
+		~ClaseMultimedia();
+		void mostrar();
+		
+};
+ClaseMultimedia::ClaseMultimedia(string _programa){
+	programa=_programa;
+}
+ClaseMultimedia::~ClaseMultimedia(){
+	
+}
+void ClaseMultimedia::mostrar(){
+	cout<<"Clase Multimedia"<<endl;
+	cout<<"Programa: "<<programa<<endl;
+}
+
+class ClaseDisco: public ClaseMultimedia{
+	protected:
+		string cancion;
+	public:
+		ClaseDisco(string,string);
+		~ClaseDisco();
+		void mostrar();		
+};
+
+
+ClaseDisco::ClaseDisco(string _cancion, string programa):ClaseMultimedia(programa){
+	cancion=_cancion;
+	cout<<"Herencia Clase Disco"<<endl;
+}
+
+void ClaseDisco::mostrar(){
+	cout<<"Clase Disco"<<endl;
+	cout<<"Cancion: "<<cancion<<endl;
+	cout<<"Programa: "<<programa<<endl;
+}
+ClaseDisco::~ClaseDisco(){
+}
+
+int main(){
+	ClaseMultimedia c1("Ares");
+	c1.mostrar();
+	
+	cout<<"-------------------"<<endl;
+	
+	ClaseDisco a1("4 babys","Spoty");
+	a1.mostrar();
+	
+}
