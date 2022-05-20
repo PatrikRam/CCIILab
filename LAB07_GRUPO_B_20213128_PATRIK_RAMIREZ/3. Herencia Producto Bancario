@@ -1,0 +1,142 @@
+#include <iostream>
+using namespace std;
+
+class ProductosBancarios{
+	protected:
+		string cliente;
+		double saldo;
+		int numProductos;
+		
+	public:
+		ProductosBancarios(string, double, int);
+		~ProductosBancarios();
+		void imprimir();
+		
+};	
+ProductosBancarios::ProductosBancarios(string _cliente, double _saldo, int _numProductos){
+		cliente=_cliente;
+		saldo=_saldo;
+		numProductos=_numProductos;
+		
+	}
+ProductosBancarios::~ProductosBancarios(){
+	
+}
+void ProductosBancarios::imprimir(){
+	cout<<"Cliente: "<<cliente<<endl;
+	cout<<"Su saldo es: "<<saldo<<endl;
+	cout<<"Numero de productos: "<<numProductos<<endl;
+	cout<<"--------------------------- "<<endl;
+}
+
+
+class Cuenta:public ProductosBancarios{
+	
+	public:
+		public:
+		Cuenta(string, double, int);
+		~Cuenta();
+		void imprimir();
+};
+
+Cuenta::Cuenta(string cliente,double saldo,int numProductos):ProductosBancarios(cliente,saldo,numProductos){
+	
+	cout<<"Herencia Clase Cuenta"<<endl;
+}
+Cuenta::~Cuenta(){
+	
+}
+	
+void Cuenta::imprimir(){
+	cout<<"Cliente: "<<cliente<<endl;
+	cout<<"Su saldo es: "<<saldo<<endl;
+	cout<<"Numero de productos: "<<numProductos<<endl;
+	cout<<"--------------------------- "<<endl;
+}
+
+class Prestamo:public ProductosBancarios{
+	
+	public:
+	Prestamo(string, double, int);
+	~Prestamo();
+	void imprimir();
+};
+		
+Prestamo::Prestamo(string cliente,double saldo,int numProductos):ProductosBancarios(cliente,saldo,numProductos){
+	
+	cout<<"Herencia Clase Prestamo"<<endl;
+}
+
+Prestamo::~Prestamo(){
+	
+}
+void Prestamo::imprimir(){
+	cout<<"Cliente: "<<cliente<<endl;
+	cout<<"Su saldo es: "<<saldo<<endl;
+	cout<<"Numero de productos: "<<numProductos<<endl;
+	cout<<"--------------------------- "<<endl;
+}
+
+
+class CuentaJoven:public Cuenta{
+	
+	public:
+	CuentaJoven(string, double, int);
+	~CuentaJoven();
+	void imprimir();
+};
+		
+CuentaJoven::CuentaJoven(string cliente,double saldo,int numProductos):Cuenta(cliente,saldo,numProductos){
+	
+	cout<<"Herencia Clase Cuenta Joven"<<endl;
+}
+
+CuentaJoven::~CuentaJoven(){
+	
+}
+void CuentaJoven::imprimir(){
+	cout<<"Cliente: "<<cliente<<endl;
+	cout<<"Su saldo es: "<<saldo<<endl;
+	cout<<"Numero de productos: "<<numProductos<<endl;
+	cout<<"--------------------------- "<<endl;
+}
+
+
+
+class Hipoteca:public Prestamo{
+	
+	public:
+	Hipoteca(string, double, int);
+	~Hipoteca();
+	void imprimir();
+};
+		
+Hipoteca::Hipoteca(string cliente,double saldo,int numProductos):Prestamo(cliente,saldo,numProductos){
+	
+	cout<<"Herencia Clase Hipoteca"<<endl;
+}
+
+Hipoteca::~Hipoteca(){
+	
+}
+void Hipoteca::imprimir(){
+	cout<<"Cliente: "<<cliente<<endl;
+	cout<<"Su saldo es: "<<saldo<<endl;
+	cout<<"Numero de productos: "<<numProductos<<endl;
+	cout<<"--------------------------- "<<endl;
+}
+
+int main(){	
+	
+	Cuenta c1("Arturo", 1985.90, 33);
+	c1.imprimir();
+	
+	Prestamo p1("Sam", 2560.00, 18);
+	p1.imprimir();
+	
+	CuentaJoven cj1("Patrik", 3965.2, 50);
+	cj1.imprimir();
+	
+	Hipoteca h1("Maria", 7851.6, 54);
+	h1.imprimir();
+}
