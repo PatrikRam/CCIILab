@@ -1,0 +1,197 @@
+#include <iostream>
+using namespace std;
+
+	
+class Forma{
+	protected:
+		string  color, nom_forma;
+		int punto;
+		
+	public:
+		Forma(string, string, int);
+		void cambiarColor();
+		void movForma();
+		virtual void imprimir();
+};
+Forma::Forma(string _color, string _nom_forma, int _punto){
+		color= _color;
+		nom_forma=_nom_forma;
+		punto= _punto;
+		
+	}
+	
+void Forma::cambiarColor(){
+	cout<<"A que color desea cambiar?: ";cin>>color;
+}
+
+void Forma::movForma(){
+	cout<<"Punto al que mover: ";cin>>punto;
+}
+
+void Forma::imprimir(){
+	cout<<"De color: "<<color<<endl;
+	cout<<"La forma es: "<<nom_forma<<endl;
+	cout<<"El punto es: "<<punto<<endl;
+}
+
+
+class Rectangulo: public Forma{
+	protected:
+		int ladomenor, ladomayor;
+		
+	public:
+		Rectangulo(string, string, int, int, int);
+		void Area();
+		void Perimetro();
+		void CambiarTam();
+		void imprimir();
+};
+Rectangulo::Rectangulo(string color, string nom_forma, int punto, int _ladomenor, int _ladomayor): Forma(color, nom_forma, punto){
+	ladomenor=_ladomenor;
+	ladomayor=_ladomayor;
+	cout<<"Clase Rectangulo"<<endl;
+}
+void Rectangulo::Area(){
+	int area;
+	area=ladomenor*ladomenor;
+	cout<<"El area es: "<<area<<endl;
+}
+
+void Rectangulo::Perimetro(){
+	int perimetro;
+	perimetro=2*ladomenor+2*ladomayor;
+	cout<<"El Perimetro es: "<<perimetro<<endl;	
+}
+
+void Rectangulo::CambiarTam(){
+	double tam, camb;
+	cout<<"Cambio de tamaño: ";cin>>tam;
+	camb=ladomenor*ladomenor*tam;
+	cout<<"El area cambio a: "<<camb<<endl;	
+}
+	
+void Rectangulo::imprimir(){
+	Forma::imprimir();
+	cout<<"Lado menor: "<<ladomenor<<endl;
+	cout<<"Lado mayor: "<<ladomayor<<endl;
+}
+
+class Elipse: public Rectangulo{
+	protected:
+		int rmenor, rmayor;
+		
+	public:
+		Elipse(string, string, int, int, int, int, int);
+		void Area();
+		void imprimir();
+};
+
+Elipse::Elipse(string color, string nom_forma, int punto, int _ladomenor, int _ladomayor, int _rmenor, int _rmayor): Rectangulo(color, nom_forma, punto, ladomenor, ladomayor){
+	rmenor=_rmenor;
+	rmayor=_rmayor;
+	cout<<"Clase Elipse"<<endl;
+}
+void Elipse::Area(){
+	double areae;
+	areae=3,1416*rmenor*rmayor;
+	cout<<"El area de la elipse es: "<<areae<<endl;
+}
+
+void Elipse::imprimir(){
+	Forma::imprimir();
+	cout<<"Lado menor: "<<rmenor<<endl;
+	cout<<"Lado mayor: "<<rmayor<<endl;
+}
+
+class Cuadrado: public Rectangulo{
+	
+	public:
+		Cuadrado(string, string, int, int, int);	
+		void imprimir();
+};
+
+Cuadrado::Cuadrado(string color, string nom_forma, int punto, int ladomenor, int ladomayor): Rectangulo(color, nom_forma, punto, ladomenor, ladomayor){
+	cout<<"Clase Cuadrado"<<endl;
+}	
+void Cuadrado::imprimir(){
+	Rectangulo::imprimir();	
+}
+
+class Circulo: public Elipse{
+		
+	public:
+		Circulo(string, string, int, int, int, int, int);
+		void imprimir();
+};
+
+Circulo::Circulo(string color, string nom_forma, int punto, int _ladomenor, int _ladomayor, int rmenor, int rmayor): Elipse(color, nom_forma, punto, ladomenor, ladomayor, rmenor,rmayor ){
+	cout<<"Clase Circulo"<<endl;
+}
+
+void Circulo::imprimir(){
+	Elipse::imprimir();
+	
+}
+
+
+int main(){	
+	//impresion normal
+	/*Forma f1("Rosado", "cuadrada", 15);
+	f1.imprimir();
+	f1.cambiarColor();
+	f1.imprimir();
+	f1.movForma();
+	f1.imprimir();
+	
+	Rectangulo r1("Amarillo", "Rectangulo", 15, 10, 15);
+	r1.imprimir();
+	r1.Area();
+	r1.Perimetro();
+	r1.CambiarTam();
+	
+	
+	Elipse e1("Negro", "Elipse", 15, 10, 15, 1, 1);
+	e1.imprimir();
+	e1.Area();
+
+	Cuadrado c1("Cafe", "Cuadrado", 20, 15, 35);
+	c1.imprimir();
+	
+	Circulo cr1("Negro", "Circulo", 15, 10, 15, 1, 1);
+	cr1.imprimir();
+	*/
+	cout<<"Clase Padre Forma"<<endl;
+	
+	Forma *vector[20];
+	/*
+	//imprecion mediante puntero a vector.
+	vector[0]= new Forma ("Rosado", "cuadrada", 15);
+	vector[0]->imprimir();
+	vector[0]->cambiarColor();	
+	vector[0]->imprimir();
+	vector[0]->movForma();
+	vector[0]->imprimir();
+	
+	
+	vector[1]= new Rectangulo ("Amarillo", "Rectangulo", 15, 10, 15);
+	vector[1]->imprimir();
+	Rectangulo r1("Amarillo", "Rectangulo", 15, 10, 15);
+	r1.Area();
+	r1.Perimetro();
+	r1.CambiarTam();
+	
+	
+	vector[2]= new Elipse("Negro", "Elipse", 15, 10, 15, 1, 1);
+	vector[2]->imprimir();
+	Elipse e1("Negro", "Elipse", 15, 10, 15, 1, 1);
+	e1.Area();
+	
+	
+	vector[3]= new Cuadrado("Cafe", "Cuadrado", 20, 15, 35);
+	vector[3]->imprimir();
+	*/
+	vector[4]= new Circulo("Negro", "Circulo", 15, 10, 15, 1, 1);
+	vector[4]->imprimir();
+	
+		
+}
