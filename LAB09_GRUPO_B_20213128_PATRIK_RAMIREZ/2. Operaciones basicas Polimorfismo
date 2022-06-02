@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+template <class TIPOD>
+void suma(TIPOD num1, TIPOD num2){
+	TIPOD res;
+	res=num1+num2;
+	cout<<"La suma es: "<<res<<endl;
+}
+
+template <class TIPOD>
+void resta(TIPOD num1, TIPOD num2){
+	TIPOD res;
+	res=num1-num2;
+	cout<<"La resta es: "<<res<<endl;
+}
+
+template <class TIPOD>
+void mult(TIPOD num1, TIPOD num2){
+	TIPOD res;
+	res=num1*num2;
+	cout<<"La resta es: "<<res<<endl;
+}
+
+template <class TIPOD>
+void div(TIPOD num1, TIPOD num2){
+	TIPOD res;
+	res=num1/num2;
+	cout<<"La resta es: "<<res<<endl;
+}
+
+int main(){
+	int a=4, b=5;
+	float c=56.56, d=58.52;
+	
+	suma(a,b);
+	suma(c,d);
+	
+	resta(a,b);
+	resta(c,d);
+	
+	mult(a,b);
+	mult(c,d);
+	
+	div(a,b);
+	div(c,d);
+}
