@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+template <class TIPOD, class TIPOD2>
+void correo(TIPOD dato1, TIPOD2 dato2){
+	
+	cout<<dato1<<dato2<<"@unsa.edu.pe"<<endl;
+}
+
+int main(){
+	char a='p';
+	string b="ramirez";
+
+	correo(a,b);
+	
+}
