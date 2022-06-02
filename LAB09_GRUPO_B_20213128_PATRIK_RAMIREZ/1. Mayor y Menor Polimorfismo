@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+template <class TIPOD>
+TIPOD menor(TIPOD num1, TIPOD num2, TIPOD num3){
+	if((num1<num2) and (num1<num3)){
+		return num1;
+	}else if ((num2<num1) and (num2<num3)){
+		return num1;
+	}else{
+		return num3;
+	}
+	
+}
+template <class TIPOD>
+TIPOD mayor(TIPOD num1, TIPOD num2, TIPOD num3){
+	if((num1<num2) and (num3<num2)){
+		return num2;
+	}else if ((num2<num1) and (num3<num1)){
+		return num1;
+	}else{
+		return num3;
+	}
+	
+}
+
+
+int main(){
+	int a=4, b=5, c=6;
+	double d=7.56, e=8.59, f=9.69;
+	
+	cout<<"El menor de los enteros es: ";
+	cout<<menor(a,b,c)<<endl;
+	cout<<"El mayor de los enteros es: ";
+	cout<<mayor(a,b,c)<<endl;
+	
+	cout<<"El menor de los double es: ";
+	cout<<menor(d,e,f)<<endl;
+	cout<<"El mayor de los double es: ";
+	cout<<mayor(d,e,f)<<endl;
+	
+}
