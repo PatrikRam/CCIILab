@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+struct Promedio{
+	float nota1;
+	float nota2;
+	float nota3;
+	float nota4;
+};
+
+struct Alumno{
+	char nombre[20];
+	char grupo[10];
+	
+	struct Promedio prom;
+}alumno1;
+
+
+int main(){
+	float promedio;
+	
+	cout<<"Digite su nombre: ";
+	cin.getline(alumno1.nombre,20,'\n');
+	cout<<"\nDigite su grupo: ";
+	cin.getline(alumno1.grupo,10,'\n');
+	
+	
+	cout<<"\n.:Notas del Alumno:.\n";
+	cout<<"Nota1: "; cin>>alumno1.prom.nota1;
+	cout<<"Nota2: "; cin>>alumno1.prom.nota2;
+	cout<<"Nota3: "; cin>>alumno1.prom.nota3;
+	cout<<"Nota4: "; cin>>alumno1.prom.nota4;
+	
+	promedio=((alumno1.prom.nota1*0.15)+(alumno1.prom.nota2*0.2)+(alumno1.prom.nota3*0.25)+(alumno1.prom.nota4*0.4));
+	
+	cout<<"\nDatos del alumno\n";
+	cout<<"Nombre: "<<alumno1.nombre<<endl;
+	cout<<"Grupo: "<<alumno1.grupo<<endl;
+	
+	cout<<"Promedio: "<<promedio<<endl;
+	}
+	
