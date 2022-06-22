@@ -1,0 +1,40 @@
+struct Cumple{
+	char nombre[20];
+};
+
+struct fecha{
+	int dia;
+	int mes;
+	int anio;
+	struct Cumple cum;
+}persona1;
+
+
+int main(){
+	int per, mes, pos=0;
+	string persona[100];
+	cout<<"Cantidad de persona: ";cin>>per;
+	cout<<"Mes actual: ";cin>>mes;
+	for(int i=0; i<per; i++){
+	
+	cout<<"Persona "<<i+1<<":"<<endl;
+	cout<<"Nombre: "; cin>>persona1.cum.nombre;
+	
+	cout<<"Digite el DIA de su nacimiento: ";
+	cin>>persona1.dia;
+	cout<<"Digite el MES de su nacimiento: ";
+	cin>>persona1.mes;
+	cout<<"Digite el AÑO de su nacimiento: ";
+	cin>>persona1.anio;
+	if(mes==persona1.mes){
+	persona[pos]=persona1.cum.nombre;
+	pos++;
+	}
+		
+	}
+	cout<<"\nCumplen años dicho mes\n";
+	for(int i=0; i<pos; i++){
+	
+	cout<<persona[i]<<endl;
+	}	
+}
