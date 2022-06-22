@@ -1,0 +1,131 @@
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+
+struct Nodo{
+	char dato;
+	Nodo *siguiente;	
+	
+};
+
+void insertarCola(Nodo *&,Nodo *&, char);
+bool cola_vacia(Nodo*);
+void mostrar(Nodo*frente,Nodo*fin, int& n);
+void mayor(Nodo*frente,Nodo*fin, int& n, Nodo*frente2,Nodo*fin2, int& n2);
+void eliminarCola(Nodo*&frente,Nodo *&fin,int&n);
+int main(){
+	Nodo *frente = NULL;
+	Nodo *fin= NULL;
+	int dato;
+	int cant;
+	
+	Nodo *frente2 = NULL;
+	Nodo *fin2= NULL;
+	int dato2;
+	
+	cout<<"Cantidad de datos de las COLAS: ";cin>>cant;
+	for(int i=0; i<cant; i++){
+	
+	cout<<"Digite un numero: ";cin>>dato;
+	insertarCola(frente,fin, dato);
+	
+	}
+	cout<<"\nCOLA 1"<<endl;
+	 mostrar(frente,fin,  dato);
+	
+	
+	for(int j=0; j<cant; j++){
+	
+	cout<<"Digite un numero: ";cin>>dato2;
+	insertarCola(frente2,fin2, dato2);
+	
+	}
+	cout<<"\nCOLA 2"<<endl;
+	 mostrar(frente2,fin2,  dato2);
+	cout<<"---------------"<<endl;
+	mayor(frente,fin, dato, frente2,fin2, dato2);
+	cout<<"Eliminando colas..."<<endl;
+	eliminarCola(frente,fin, dato);
+	eliminarCola(frente2,fin2,  dato2);
+}
+
+void insertarCola(Nodo *&frente,Nodo *&fin,char n){
+	Nodo *nuevo_nodo=new Nodo();
+	nuevo_nodo->dato=n;
+	nuevo_nodo->siguiente=NULL;
+	
+	if(cola_vacia(frente)){
+	
+	frente =nuevo_nodo;
+}
+else{
+	fin->siguiente =nuevo_nodo;
+}
+
+fin = nuevo_nodo;
+
+}
+
+bool cola_vacia(Nodo *frente){
+	return(frente ==NULL)? true: false;
+	
+}
+
+void mostrar(Nodo*frente,Nodo*fin, int& n)
+{
+ cout << "Los datos almacenados en la cola son: \n";
+ int i = 0;
+ while (frente != NULL)
+ {
+  i++;
+  n = frente->dato;
+  frente = frente->siguiente;
+  cout << "\tDato[" << i << "]: " << n << endl;
+ }cout << endl; i = 0;
+ 
+ 
+}
+
+void mayor(Nodo*frente,Nodo*fin, int& n, Nodo*frente2,Nodo*fin2, int& n2)
+{
+ cout << "MAYOR DE AMBAS COLAS"<<endl;
+ int i = 0, may;
+ while (frente != NULL and frente2!= NULL)
+ {
+  i++;
+  n = frente->dato;
+  n2 = frente2->dato;
+  
+  frente = frente->siguiente;
+  frente2= frente2->siguiente;
+  if (n>n2){
+  cout << "\tDato[" << i << "]: " << n <<" - "<<n2<<" El mayor es: "<<n<<" COLA 1"<< endl;
+  }else if (n<n2){
+  	cout << "\tDato[" << i << "]: " << n <<" - "<<n2<<" El mayor es: "<<n2<<" COLA 2"<< endl;
+  }else{
+  	cout << "\tDato[" << i << "]: " << n <<" - "<<n2<<" DATOS IGUALES "<< endl;
+  }
+ }
+ cout << endl; i = 0;
+ 
+}
+
+void eliminarCola(Nodo*&frente,Nodo *&fin,int&n){
+	n=frente->dato;
+	Nodo *aux = frente;
+	
+	if(frente == fin){
+		frente = NULL;
+		fin =NULL;
+		
+	}
+	else{
+		frente= frente->siguiente;
+		
+	}
+	delete aux;
+	
+}
