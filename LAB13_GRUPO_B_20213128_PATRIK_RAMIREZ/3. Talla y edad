@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+struct Persona{
+	char nombre[20];
+	int edad;
+};
+
+struct tam{
+	float talla;
+	struct Persona pers;
+}persona1;
+
+
+int main(){
+	int per, mes, p=0;
+	string nombre[100];
+	
+	for(int i=0; i<4; i++){
+	
+	cout<<"Persona "<<i+1<<":"<<endl;
+	cout<<"Nombre: "; cin>>persona1.pers.nombre;
+	cout<<"Digite su edad: ";
+	cin>>persona1.pers.edad;
+	
+	cout<<"Digite su altura: ";cin>>persona1.talla;
+	
+	if(persona1.pers.edad<20 && persona1.talla>1.70){
+	nombre[p]=persona1.pers.nombre;
+	
+	p++;
+	}	
+	}
+	cout<<"\nLas personas menores de 20 y con altura mayor a 1.70mts son: \n";
+	for(int i=0; i<p; i++){
+	
+	cout<<nombre[i]<<endl;
+	}	
+	
+}
