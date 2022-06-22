@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+struct Persona{
+	char nombre[20];
+	char sexo[10];
+};
+
+struct plata{
+	int sueldo;
+
+	struct Persona per;
+}persona1;
+
+
+int main(){
+	int cant, pos=0;
+	float mayor=0, menor=99999;
+	double sueldos[100];
+	cout<<"Cantidad de persona: ";cin>>cant;
+	
+	for(int i=0; i<cant; i++){
+	
+	cout<<"Persona "<<i+1<<":"<<endl;
+	cout<<"Nombre: "; cin>>persona1.per.nombre;
+	cout<<"Sexo: "; cin>>persona1.per.sexo;
+	cout<<"Sueldo: ";cin>>persona1.sueldo;
+	
+	sueldos[pos]=persona1.sueldo;
+	pos++;
+		
+	}
+	cout<<"\nSueldos Mayor\n";
+	for(int i=0; i<pos; i++){
+	
+	if(sueldos[i]>mayor){
+		mayor=sueldos[i];
+	}
+	
+	}
+	cout<<mayor<<endl;	
+	cout<<"\nSueldos Menor\n";
+	for(int i=0; i<pos; i++){
+	
+	if(sueldos[i]<menor){
+		menor=sueldos[i];
+	}
+	
+	}
+	cout<<menor<<endl;	
+}
