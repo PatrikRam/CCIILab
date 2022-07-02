@@ -1,0 +1,143 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+class Tienda
+{
+ 	string nombre;
+ 	int codigo, precio;
+public:
+	Tienda();
+ 	Tienda(string,int, int);
+ 	~Tienda(){}
+ 	void setNombre(string);
+ 	void setcodigo(int);
+ 	void setprecio(int);
+ 	
+ 	string getNombre();
+ 	int getcodigo();
+ 	int getprecio();
+ 	
+};
+Tienda::Tienda(){
+}
+Tienda::Tienda(string _nombre, int _codigo, int _precio)
+{
+	nombre=_nombre;
+ 	codigo=_codigo;
+ 	precio=_precio;
+}
+void Tienda::setNombre(string x)
+{
+	 nombre=x;
+}
+void Tienda::setcodigo(int y)
+{
+ 	codigo=y;
+}
+void Tienda::setprecio(int z)
+{
+ 	precio=z;
+}
+string Tienda::getNombre()
+{
+ 	return nombre;
+}
+int Tienda::getcodigo()
+{
+ 	return codigo;
+}
+int Tienda::getprecio()
+{
+ 	return precio;
+}
+int main()
+{
+ 	Tienda *ListaAgenda[10];
+ 	int opc,i=0;
+ 	do
+ 	{
+ 	 cout<<"(1)Ingresar un nuevo producto \n";
+	 cout<<"(2)Buscar\n";
+	 cout<<"(3)Modificar\n";
+	 cout<<"(4)Listar Productos\n";
+	cout<<"(5)Dar de baja\n";
+	 cout<<"(6)Salir\n";
+	 cout<<"Opcion? ";
+	 cin>>opc;
+ 	if(opc==1)
+ 	{
+	 string nom;
+	 int codigo, precio;
+	 cout<<"Nombre: ";
+	 cin>>nom;
+	 cout<<"Codigo: ";
+	 cin>>codigo;
+	 cout<<"Precio en soles: ";
+	 cin>>precio;
+	 ListaAgenda[i]=new Tienda(nom,codigo, precio);
+	 i++;
+	 }
+	 else if(opc==2)
+	 {
+	 int k=0, dato;
+	 char band = 'F';
+	 cout<<"Buscar por codigo:";cin>>dato;
+	
+	 while((band =='F') && (i<5)){
+	 if (ListaAgenda[k]->getcodigo()==dato){
+	 band = 'V';
+	 }
+	 k++;
+	 }
+	 if (band =='F'){
+	 cout<<"El numero no existe en el arreglo"<<endl;
+	 }else if (band=='V'){
+	 cout<<"El numero se encuentra en el arreglo: "<<endl;
+	 }
+	 }
+	 else if(opc==3)
+	 {
+	 int modificar;
+	 string nom;
+	 int codigo;
+	 int precio;
+	 cout<<"Posicion a modificar\n";cin>>modificar;
+	 cout<<"Nuevo nombre: ";cin>>nom;
+	 cout<<"Nuevo codigo: ";cin>>codigo;
+	 cout<<"Nuevo precio en soles: ";cin>>precio;
+		ListaAgenda[modificar-1]=new Tienda(nom,codigo,precio);
+	 if (modificar<10){
+	 	
+	 cout<<"Nuevos valores para ["<<modificar<<"] "<<endl;
+	 
+	 }else{
+	 cout<<"No existe esa posicion"<<endl;
+	 }
+	 }
+	 else if(opc==4)
+	 {
+	 cout<<"Listado de productos\n";
+	 for(int j=0; j<i; j++)
+	 {
+	 cout<<"Nombre: "<<ListaAgenda[j]->getNombre();
+	 cout<<" - "<<"Codigo= "<<ListaAgenda[j]->getcodigo();
+	 cout<<" - "<<"Precio= "<<ListaAgenda[j]->getprecio()<<endl;
+	 }
+	 }
+	 else if(opc==5)
+	 {
+	 int baja;
+	 cout<<"Posicion a dar de BAJA\n";cin>>baja;
+	 
+		ListaAgenda[baja-1]=new Tienda("No hay stock",0, 0);
+	 if (baja<10){
+	 	
+	 cout<<"Producto dado de baja"<<endl;
+	 
+	 }else{
+	 cout<<"No existe esa posicion"<<endl;
+	 }
+	 }
+	 }while(opc!=6);
+	 
+}
