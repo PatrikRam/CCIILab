@@ -1,0 +1,128 @@
+#include "iostream"
+#include "vector"
+using namespace std;
+class Producto1 {
+public:
+	vector<std::string> componentes;
+	void ListaComp()const {
+		cout << "Componentes : ";
+		for (size_t i = 0; i < componentes.size(); i++) {
+			if (componentes[i] == componentes.back()) {
+				cout << componentes[i];
+			}
+			else {
+				cout << componentes[i] << ", ";
+			}
+		}
+		cout << "\n\n";
+	}
+};
+
+class IBuilder {
+public:
+	virtual ~IBuilder() {}
+	virtual void ProducirParteA() const = 0;
+	virtual void ProducirParteB() const = 0;
+	virtual void ProducirParteC() const = 0;
+	virtual void ProducirParteD() const = 0;
+	virtual void ProducirParteE() const = 0;
+	virtual void ProducirParteF() const = 0;
+};
+
+class BuilderEspecifico : public IBuilder {
+private:
+	Producto1* product;
+	char color;
+public:
+
+	BuilderEspecifico() {
+		this->Reset();
+	}
+	~BuilderEspecifico() {
+		delete product;
+	}
+	void Reset() {
+		this->product = new Producto1();
+	}
+	void ProducirParteA()const override {
+		string a;
+		cout<<"Color de las puertas: ";cin>>a;
+		this->product->componentes.push_back("Puertas "+ a);		
+	}
+	void ProducirParteB()const override {
+		string b;
+		cout<<"Color de las Llantas: ";cin>>b;
+		this->product->componentes.push_back("Llantas "+ b);
+	}
+	void ProducirParteC()const override {
+		string c;
+		cout<<"Color del Timon: ";cin>>c;
+		this->product->componentes.push_back("Timon "+ c);
+	}
+	void ProducirParteD()const override {
+		string d;
+		cout<<"Color del Motor: ";cin>>d;
+		this->product->componentes.push_back("Motor "+ d);
+	}
+	void ProducirParteE()const override {
+		string e;
+		cout<<"Color de las Espejos: ";cin>>e;
+		this->product->componentes.push_back("Espejos "+ e);
+	}
+	void ProducirParteF()const override {
+		string f;
+		cout<<"Color de los Vidrios: ";cin>>f;
+		this->product->componentes.push_back("Vidrios"+ f);
+	}
+	Producto1* GetProducto() {
+		Producto1* resultado = this->product;
+		this->Reset();
+		return resultado;
+	}
+};
+
+class Director {
+private:
+	IBuilder* builder;
+public:
+	void set_builder(IBuilder* builder) {
+		this->builder = builder;
+	}
+	void BuildProductoMin() {
+		this->builder->ProducirParteA();
+		this->builder->ProducirParteC();
+	}
+	void BuildProductoCompleto() {
+		this->builder->ProducirParteA();
+		
+		this->builder->ProducirParteB();
+		this->builder->ProducirParteC();
+		this->builder->ProducirParteD();
+		this->builder->ProducirParteE();
+		this->builder->ProducirParteF();
+	}
+};
+
+	void ClienteCode(Director& director)
+{
+	BuilderEspecifico* builder = new BuilderEspecifico();
+	director.set_builder(builder);
+	cout << "Producto Basico:\n";
+	director.BuildProductoMin();
+	Producto1* p = builder->GetProducto();
+	p->ListaComp();
+	delete p;
+	cout << "Producto Completo:\n";
+	director.BuildProductoCompleto();
+	p = builder->GetProducto();
+	p->ListaComp();
+	delete p;
+
+}
+int main() {
+	
+	Director* director = new Director();
+	ClienteCode(*director);
+	delete director;
+	
+}
